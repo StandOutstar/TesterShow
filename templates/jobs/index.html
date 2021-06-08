@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job List</title>
+</head>
+<body>
+{% if latest_job_list %}
+    <ul>
+    {% for task in latest_job_list %}
+{#        <li><a href="/jobs/{{ task.id }}/">{{ task.name }}</a></li>#}
+        <li><a href="{% url 'jobs:detail' task.id %}">{{ task.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No jobs are available.</p>
+{% endif %}
+</body>
+</html>
